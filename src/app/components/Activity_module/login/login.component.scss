@@ -1,0 +1,108 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+
+  .login-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 2rem 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    background-color: #fff;
+    text-align: center;
+
+    .custom-close-button {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      color: #666;
+      z-index: 10;
+
+      mat-icon {
+        font-size: 22px;
+      }
+
+      &:hover {
+        color: #d32f2f;
+      }
+    }
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #0d47a1;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+
+      .full-width {
+        width: 100%;
+      }
+
+      mat-form-field {
+        font-size: 0.95rem;
+
+        input {
+          font-size: 1rem;
+        }
+
+        mat-error {
+          font-size: 0.8rem;
+        }
+      }
+
+      button[type='submit'] {
+        margin-top: 1rem;
+        height: 45px;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: none;
+
+        mat-spinner {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        span {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    .links {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #555;
+
+      a {
+        font-weight: 600;
+        text-decoration: underline;
+        color: #1976d2;
+
+        &:hover {
+          color: #004ba0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem 1rem !important;
+  }
+}

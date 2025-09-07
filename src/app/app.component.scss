@@ -1,0 +1,22 @@
+.main-container {
+  padding-top: 120px;
+
+  @media (max-width: 576px) {
+    padding-top: 100px;
+  }
+}
+
+/* The total height = top bar (50px) + navbar (~65px) */
+body {
+  margin: 0;
+  padding-top: 120px; /* Adjust based on actual combined height */
+  box-sizing: border-box;
+  background-color: #f9f9f9; /* Optional */
+}
+
+/* For smaller screens, adjust padding */
+@media (max-width: 576px) {
+  body {
+    padding-top: 100px;
+  }
+}

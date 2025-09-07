@@ -1,0 +1,24 @@
+<div class="top_bar">
+  <p>हे सतपुरष हे सतनाम</p>
+</div>
+
+<mat-toolbar color="primary" class="home-navbar sticky-navbar" [class.shrink]="isShrunk">
+  <div class="logo">
+    <img src="images/satnam_logo.png" alt="Logo" class="logo-img" />
+    Satnam <span>Trust</span>
+  </div>
+
+  <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <nav class="nav-links" [class.active]="isMenuOpen">
+    <button mat-button [routerLink]="['/home']" [ngClass]="{'active-link': activeRoute === '/home'}">Home</button>
+    <button mat-button [routerLink]="['/membership']" [ngClass]="{'active-link': activeRoute === '/membership'}">Membership</button>
+    <button mat-button [routerLink]="['/weBuild']" [ngClass]="{'active-link': activeRoute === '/weBuild'}">We Build</button>
+    <button mat-button [routerLink]="['/aboutDetail']" [ngClass]="{'active-link': activeRoute === '/aboutDetail'}">About</button>
+
+    <button mat-button *ngIf="!isLoggedIn" (click)="openLoginDialog()">Login</button>
+    <button mat-button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+  </nav>
+</mat-toolbar>

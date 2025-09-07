@@ -1,0 +1,46 @@
+<div class="payment-container">
+  <div class="payment-card">
+    <h2>Make Payment</h2>
+
+    <form (ngSubmit)="makePayment()" #paymentForm="ngForm">
+      <!-- Show input if no plan selected -->
+      <div class="form-group" *ngIf="!isPlanSelected">
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          [(ngModel)]="amount"
+          required
+          min="1"
+          placeholder="Enter amount"
+        />
+      </div>
+
+      <!-- Show selected plan if preselected -->
+      <div *ngIf="isPlanSelected">
+        <p><strong>Selected Plan:</strong> ₹{{ amount }}</p>
+      </div>
+
+      <!-- Payment Button -->
+      <button type="submit" [disabled]="paymentForm.invalid">Pay Now</button>
+    </form>
+
+    <!-- Status Message -->
+    <div class="status" *ngIf="paymentStatus">
+      <p>{{ paymentStatus }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="payment-container">
+  <h2>PhonePe Payment</h2>
+  <label>Amount:</label>
+  <input type="number" [(ngModel)]="amount" min="1" />
+  
+  <label>Mobile Number:</label>
+  <input type="text" [(ngModel)]="mobileNumber" maxlength="10" />
+
+  <button (click)="payNow()">Pay with PhonePe</button>
+</div> -->
+

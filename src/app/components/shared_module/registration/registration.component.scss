@@ -1,0 +1,205 @@
+/* ===========================
+   Registration Container
+=========================== */
+.registration-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  @media (max-width: 992px) {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
+
+  @media (max-width: 576px) {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+  }
+}
+
+/* ===========================
+   Form Styling
+=========================== */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  /* Form Title */
+  .form-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #3f51b5;
+    letter-spacing: 1px;
+
+    @media (max-width: 576px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Section Titles */
+  h4 {
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    color: #3f51b5;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ===========================
+   Form Rows & Fields
+=========================== */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .form-group {
+    flex: 1 1 45%;
+    min-width: 250px;
+
+    @media (max-width: 768px) {
+      flex: 1 1 100%;
+    }
+  }
+
+  .full-width {
+    flex: 1 1 100%;
+  }
+}
+
+/* Angular Material Form Fields */
+mat-form-field {
+  width: 100%;
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0.8rem;
+  }
+
+  ::ng-deep .mat-form-field-outline {
+    border-color: #3f51b5;
+  }
+
+  ::ng-deep .mat-form-field-label {
+    font-size: 0.95rem;
+    color: #333;
+  }
+}
+
+/* ===========================
+   Checkboxes
+=========================== */
+mat-checkbox {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+
+  ::ng-deep .mat-checkbox-inner-container {
+    transform: scale(1.1);
+  }
+}
+
+/* ===========================
+   Buttons Styling
+=========================== */
+.form-row:last-of-type {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  button {
+    min-width: 120px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  button[color="primary"] {
+    background-color: #3f51b5;
+    color: white;
+
+    &:hover {
+      background-color: #2e3c9b;
+    }
+  }
+
+  button[color="warn"] {
+    background-color: #f44336;
+    color: white;
+
+    &:hover {
+      background-color: #d32f2f;
+    }
+  }
+}
+
+/* ===========================
+   Image Upload & Preview
+=========================== */
+.img-preview {
+  margin-top: 1rem;
+  text-align: center;
+
+  img {
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 576px) {
+    img {
+      max-width: 120px;
+      max-height: 120px;
+    }
+  }
+}
+
+/* ===========================
+   Responsive Typography
+=========================== */
+@media (max-width: 768px) {
+  .registration-form {
+    gap: 1rem;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  mat-form-field {
+    font-size: 0.95rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+}

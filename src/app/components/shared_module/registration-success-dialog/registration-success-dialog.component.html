@@ -1,0 +1,15 @@
+<div class="dialog-container">
+  <h2>🎉 <strong>Welcome:</strong> {{ data.firstName }} </h2>
+  <p>Thank You! for joining us. Your registration was successful <strong>Satnam Trust</strong></p>
+  <p><strong>User ID:</strong> {{ data.userId }}</p>
+  <p><strong>Password:</strong> {{ data.password }}</p>
+
+  <div class="dialog-actions">
+    <button mat-raised-button color="primary" routerLink="/home" (click)="closeDialog()">
+      Go to Home
+    </button>
+    <button mat-raised-button color="accent" routerLink="/login" (click)="openLoginDialog()" >
+      Go to Login
+    </button>
+  </div>
+</div>

@@ -1,0 +1,294 @@
+// ADMIN DASHBOARD
+.dashboard-container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+
+  // Dashboard Title
+  mat-page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 5px;
+    color: #3f51b5;
+    text-align: right;
+    letter-spacing: 0.5px;
+  }
+
+  // TOOLBAR & STATS CARDS
+  .toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+
+      .stat-card {
+        background: #fff;
+        padding: 1rem;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        mat-card-title {
+          font-size: 1rem;
+          color: #555;
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+
+        mat-card-content {
+          h2 {
+            margin: 0;
+            color: #3f51b5;
+            font-size: 2rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  // FILTERS SECTION
+  .search-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+
+    mat-form-field {
+      width: 280px;
+      max-width: 100%;
+    }
+
+    button[mat-stroked-button] {
+      height: 55px;
+      font-weight: 600;
+    }
+  }
+
+  // TABLE DESIGN
+  h4 {
+    margin-top: 1rem;
+    color: #3f51b5;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  .full-width-table {
+    width: 100%;
+    overflow-x: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    margin-top: 1rem;
+
+    table {
+      min-width: 900px;
+    }
+
+    th {
+      background-color: #3f51b5;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      padding: 12px;
+      text-align: center;
+    }
+
+    td {
+      padding: 12px;
+      font-size: 0.9rem;
+      color: #333;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+
+      &:last-child {
+        white-space: nowrap;
+      }
+    }
+
+    // Profile Image
+    .profile-image {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    // Status Buttons
+    button[mat-stroked-button] {
+      min-width: 110px;
+      font-weight: bold;
+      border-radius: 6px;
+      text-transform: capitalize;
+      padding: 4px 12px;
+
+      &[color="primary"] {
+        border-color: #3f51b5;
+        color: #3f51b5;
+        background-color: #e8eaf6;
+      }
+
+      &[color="warn"] {
+        border-color: #f44336;
+        color: #f44336;
+        background-color: #fdecea;
+      }
+
+      &[color="accent"] {
+        border-color: #ff9800;
+        color: #ff9800;
+        background-color: #fff3e0;
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+
+      button {
+        min-width: 40px;
+        height: 40px;
+      }
+    }
+
+    .view {
+      background-color: #ebf0ef;
+      color: #10db32;
+
+      &:hover {
+        background-color: darken(#ebf0ef, 5%);
+      }
+    }
+    .edit {
+      background-color: #f2f1f0;
+      color: #88730b;
+
+      &:hover {
+        background-color: darken(#f2f1f0, 5%);
+      }
+    }
+
+    .delete {
+      background-color: #f1eded;
+      color: #f30707;
+
+      &:hover {
+        background-color: darken(#f1eded, 5%);
+      }
+    }
+  }
+
+  // ===============================
+  // PAGINATION
+  // ===============================
+  .paginator-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+
+    mat-paginator {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      padding: 5px 10px;
+    }
+  }
+}
+
+// ===============================
+// RESPONSIVE DESIGN
+// ===============================
+
+@media (max-width: 1200px) {
+  .dashboard-container {
+    .toolbar .stats {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard-container {
+    .search-container {
+      flex-direction: column;
+      align-items: stretch;
+
+      mat-form-field {
+        width: 100%;
+      }
+
+      button[mat-stroked-button] {
+        width: 100%;
+      }
+    }
+
+    .full-width-table {
+      th,
+      td {
+        padding: 10px;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+
+    .toolbar .stats {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .full-width-table {
+      table {
+        min-width: 700px;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-container {
+    padding: 0.8rem;
+
+    mat-page-title {
+      font-size: 1.5rem;
+    }
+
+    .toolbar .stats {
+      grid-template-columns: 1fr;
+    }
+
+    .full-width-table {
+      table {
+        min-width: 600px;
+      }
+    }
+  }
+}

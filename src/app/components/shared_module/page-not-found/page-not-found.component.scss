@@ -1,0 +1,63 @@
+.error-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 1rem;
+
+    .error-content {
+        max-width: 600px;
+        background: #ffffff;
+        padding: 3rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        animation: fadeInUp 1s ease;
+
+        .error-code {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #3f51b5;
+            margin: 0;
+        }
+
+        .error-message {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .error-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            padding: 0.6rem 2rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(63, 81, 181, 0.3);
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

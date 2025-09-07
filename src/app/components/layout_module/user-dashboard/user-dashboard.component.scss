@@ -1,0 +1,233 @@
+/* ===== DASHBOARD TOOLBAR ===== */
+.dashboard-toolbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: rgb(7, 0, 0);
+  padding: 0 1.2rem;
+  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  button[mat-icon-button] {
+    color: rgb(25, 25, 229);
+    width: 40px;
+    height: 40px;
+
+    mat-icon {
+      font-size: 28px;
+    }
+  }
+}
+
+/* ===== DASHBOARD CONTAINER ===== */
+.dashboard-container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #f7f8fc;
+  min-height: 100vh;
+}
+
+/* ===== STATUS CARDS ===== */
+.status-card {
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  mat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    div[mat-card-avatar] {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    mat-card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+
+  mat-card-content {
+    margin-top: 8px;
+    font-size: 0.95rem;
+  }
+
+  &.pending {
+    background-color: #fff8e1;
+    border-left: 5px solid #ffb300;
+  }
+
+  &.rejected {
+    background-color: #ffebee;
+    border-left: 5px solid #e53935;
+  }
+
+  &.approved {
+    background-color: #e8f5e9;
+    border-left: 5px solid #43a047;
+  }
+}
+
+/* ===== PROFILE CARD ===== */
+.profile-card {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  mat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    div[mat-card-avatar] {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    mat-card-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+  }
+
+  .profile-details {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+
+      strong {
+        color: #4b36c2;
+      }
+    }
+  }
+}
+
+/* ===== PAYMENTS TABLE ===== */
+.payments-section {
+  max-width: 800px;
+  margin: 0 auto;
+
+  mat-card {
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  mat-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #4b36c2;
+  }
+
+  .table-container {
+    overflow-x: auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+
+      th {
+        background-color: #f3f4f6;
+        color: #333;
+        font-weight: 600;
+        text-align: left;
+        padding: 12px;
+      }
+
+      td {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      .amount {
+        font-weight: 600;
+        color: #43a047;
+      }
+
+      tr:hover {
+        background-color: #f9f9f9;
+      }
+    }
+
+    mat-paginator {
+      margin-top: 1rem;
+      border-top: 1px solid #e0e0e0;
+    }
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .profile-card .profile-details {
+    grid-template-columns: 1fr;
+  }
+
+  .status-card,
+  .profile-card,
+  .payments-section {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-toolbar .logo {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-container {
+    padding: 1rem;
+  }
+}
