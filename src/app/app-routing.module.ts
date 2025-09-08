@@ -33,6 +33,8 @@ const routes: Routes = [
   { path: 'membership', component: MembershipComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'weBuild', component: WeBuildComponent },
+  { path: 'newsDetail', component: NewsDetailComponent },
+  
   {
     path: 'adminDashboard',
     component: AdminDashboardComponent,

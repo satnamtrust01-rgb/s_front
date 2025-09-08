@@ -17,6 +17,7 @@
     <button mat-button [routerLink]="['/membership']" [ngClass]="{'active-link': activeRoute === '/membership'}">Membership</button>
     <button mat-button [routerLink]="['/weBuild']" [ngClass]="{'active-link': activeRoute === '/weBuild'}">We Build</button>
     <button mat-button [routerLink]="['/aboutDetail']" [ngClass]="{'active-link': activeRoute === '/aboutDetail'}">About</button>
+    <button mat-button [routerLink]="['/newsDetail']" [ngClass]="{'active-link': activeRoute === '/newsDetail'}">News</button>
 
     <button mat-button *ngIf="!isLoggedIn" (click)="openLoginDialog()">Login</button>
     <button mat-button *ngIf="isLoggedIn" (click)="logout()">Logout</button>

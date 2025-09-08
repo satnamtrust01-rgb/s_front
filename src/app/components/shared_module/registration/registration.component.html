@@ -43,6 +43,22 @@
 
     <div class="form-row">
       <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Father's/Husband's Name/पिता/पति का नाम</mat-label>
+        <input
+          matInput
+          formControlName="father_name"
+          (keypress)="allowAlphabetsOnly($event)"
+        />
+        <mat-error
+          *ngIf="registrationForm.get('father_name')?.hasError('required')"
+          >Father's/Husband's Name is required/पिता/पति का नाम आवश्यक है</mat-error
+        >
+      </mat-form-field>
+
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline" class="form-group">
         <mat-label>Gender/लिंग</mat-label>
         <mat-select formControlName="gender">
           <mat-option value="" disabled>Select/चुनें</mat-option>

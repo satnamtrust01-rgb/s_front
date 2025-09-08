@@ -57,9 +57,10 @@
   </mat-card>
 
   <!-- Download Button -->
-  <div class="download-btn" #downloadBtn>
-    <button mat-raised-button color="primary" (click)="downloadIdCard()">
-      Download ID Card
-    </button>
-  </div>
+<div class="download-btn" #downloadBtn *ngIf="isVerified">
+  <button mat-raised-button color="primary" (click)="downloadIdCard()">
+    Download ID Card
+  </button>
+</div>
+
 </div>
