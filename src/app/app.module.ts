@@ -60,6 +60,8 @@ import { PaymentComponent } from './components/shared_module/payment/payment.com
 import { RegistrationSuccessDialogComponent } from './components/shared_module/registration-success-dialog/registration-success-dialog.component';
 import { IdcardComponent } from './components/shared_module/idcard/idcard.component';
 import { CdkTableModule } from "@angular/cdk/table";
+import { DonationComponent } from './components/layout_module/donation/donation.component';
+import { TopDonatorComponent } from './components/layout_module/top-donator/top-donator.component';
 
 
 
@@ -100,6 +102,8 @@ export const MY_DATE_FORMATS = {
     PaymentComponent,
     RegistrationSuccessDialogComponent,
     IdcardComponent,
+    DonationComponent,
+    TopDonatorComponent,
   ],
 
   imports: [
@@ -154,7 +158,7 @@ export const MY_DATE_FORMATS = {
     { provide: DateAdapter, useClass: NativeDateAdapter },
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
-    
+
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -5,7 +5,7 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { IdcardComponent } from '../../shared_module/idcard/idcard.component';
-
+import { MatSnackBar } from '@angular/material/snack-bar'; // add this import
 
 @Component({
   selector: 'app-user-dashboard',
@@ -26,7 +26,8 @@ export class UserDashboardComponent implements OnInit {
 
   constructor(
     private dashboardService: DashboardService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -54,13 +55,25 @@ export class UserDashboardComponent implements OnInit {
     });
   }
 
+  get isVerified(): boolean {
+    return (this.user?.account_status ?? '').toLowerCase() === 'approved';
+  }
+
   openIdCardDialog(): void {
+    if (!this.isVerified) {
+      this.snackBar.open(
+        'Only verified members can download the ID card.',
+        'OK',
+        { duration: 3000 }
+      );
+      return;
+    }
+
     this.dialog.open(IdcardComponent, {
-      // width: '400px',
-      // height: '600px',
-      data: { user: this.user }, // Pass user data if needed
+      width: '380px',
       disableClose: false,
       panelClass: 'idcard-dialog',
+      data: { user: this.user },
     });
   }
 

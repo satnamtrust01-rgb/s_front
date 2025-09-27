@@ -17,6 +17,9 @@ import { AdminGuard } from './guards/admin.guard';
 import { EmpGuard } from './guards/emp.guard';
 import { PaymentComponent } from './components/shared_module/payment/payment.component';
 import { IdcardComponent } from './components/shared_module/idcard/idcard.component';
+import { DonationComponent } from './components/layout_module/donation/donation.component';
+import { TopDonatorComponent } from './components/layout_module/top-donator/top-donator.component';
+
 
 
 const routes: Routes = [
@@ -33,6 +36,10 @@ const routes: Routes = [
   { path: 'membership', component: MembershipComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'weBuild', component: WeBuildComponent },
+  { path: 'newsDetail', component: NewsDetailComponent },
+  {path: 'donation', component: DonationComponent},
+  {path: 'top-donors', component: TopDonatorComponent},
+
   {
     path: 'adminDashboard',
     component: AdminDashboardComponent,
@@ -61,7 +68,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
-      scrollOffset: [0, 80], 
+      scrollOffset: [0, 80],
     }),
   ],
   exports: [RouterModule],

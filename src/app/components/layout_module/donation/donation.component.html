@@ -1,0 +1,54 @@
+<!-- Top-level container -->
+<div class="page-container">
+  <div class="inner">
+    <!-- Left card: QR -->
+    <mat-card class="card large left-card">
+      <div class="qr-holder">
+        <div class="qr-frame">
+          <img [src]="qrImage" alt="QR" (error)="qrImage='https://via.placeholder.com/300x300?text=QR'" />
+        </div>
+      </div>
+
+      <div class="qr-text">
+        <h2>दान करने के लिए स्कैन करें</h2>
+        <p>आपका योगदान हमें बदलाव करने में मदद करता है</p>
+      </div>
+    </mat-card>
+
+    <!-- Right card: Trust Information -->
+    <mat-card class="card large right-card">
+      <div class="trust-header">
+        <h3>Trust Information</h3>
+        <div class="underline"></div>
+      </div>
+
+      <div class="info-list">
+        <div class="info-item">
+          <div class="label">ट्रस्ट का नाम</div>
+          <div class="value">{{ trust.name }}</div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">मुख्य कार्यकारी अधिकारी</div>
+          <div class="value">{{ trust.ceo }}</div>
+        </div>
+
+        <!-- <div class="info-item">
+          <div class="label">मोबाइल नंबर</div>
+          <div class="value">{{ trust.phone }}</div>
+        </div> -->
+
+        <div class="info-item">
+          <div class="label">ईमेल आईडी</div>
+          <div class="value">{{ trust.email }}</div>
+        </div>
+
+        <div class="info-item">
+          <div class="label">पता</div>
+          <div class="value">{{ trust.address }}</div>
+        </div>
+      </div>
+    </mat-card>
+
+  </div>
+</div>

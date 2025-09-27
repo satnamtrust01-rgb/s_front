@@ -17,65 +17,55 @@ import jsPDF from 'jspdf';
 })
 export class IdcardComponent implements AfterViewInit {
   user: any;
-  @ViewChild('idCard', { static: false }) idCard!: ElementRef;
-  @ViewChild('downloadBtn', { static: false }) downloadBtn!: ElementRef;
+  isVerified = false;
+
+  @ViewChild('idCard') idCard!: ElementRef;
+  @ViewChild('downloadArea') downloadArea!: ElementRef;
+  @ViewChild('downloadBtn') downloadBtn!: ElementRef;
 
   constructor(
-    public dialogRef: MatDialogRef<IdcardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<IdcardComponent>,
     private cdr: ChangeDetectorRef
   ) {
-    this.user = data.user;
+    this.user = data?.user || null;
+    this.isVerified =
+      (this.user?.account_status || '').toLowerCase() === 'approved';
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.cdr.detectChanges();
-    }, 300);
+    this.cdr.detectChanges();
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-   downloadIdCard() {
-    const element = this.idCard?.nativeElement;
-
-    if (!element) {
-      console.error('ID Card element is missing!');
+  downloadIdCard(): void {
+    if (!this.isVerified) {
+      // extra safety (should never reach here because button is hidden)
+      alert('Only verified users can download the ID card.');
       return;
     }
 
-    // Hide the download button temporarily
     if (this.downloadBtn?.nativeElement) {
       this.downloadBtn.nativeElement.style.display = 'none';
     }
 
-    html2canvas(element, {
-      scale: 4,             // High resolution
-      useCORS: true,        // Handle cross-origin images
-      backgroundColor: '#fff',
-      logging: false,
-      scrollX: 0,
-      scrollY: 0,
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight
+    const el = this.downloadArea?.nativeElement || this.idCard?.nativeElement;
+
+    html2canvas(el, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: '#ffffff',
     }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
-
-      // CR80 standard ID card size
       const imgWidth = 250;
-      const imgHeight = 400;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
       const pdf = new jsPDF('portrait', 'px', [imgWidth, imgHeight]);
       pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
       pdf.save(`${this.user?.first_name || 'User'}_ID_Card.pdf`);
 
-      // Show download button again
       if (this.downloadBtn?.nativeElement) {
         this.downloadBtn.nativeElement.style.display = 'block';
       }
     });
   }
-
 }

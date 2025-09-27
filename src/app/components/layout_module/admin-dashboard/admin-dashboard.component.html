@@ -5,6 +5,28 @@
   <div class="toolbar">
     <!-- Stats Cards -->
     <div class="stats">
+
+      <mat-card class="stat-card">
+        <mat-card-title>Total Amount</mat-card-title>
+        <mat-card-content>
+          <h2>120</h2>
+        </mat-card-content>
+      </mat-card>
+
+       <mat-card class="stat-card">
+        <mat-card-title>Available Amount</mat-card-title>
+        <mat-card-content>
+          <h2>120</h2>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <mat-card-title>Spent Amount Till Now</mat-card-title>
+        <mat-card-content>
+          <h2>120</h2>
+        </mat-card-content>
+      </mat-card>
+
       <mat-card class="stat-card">
         <mat-card-title>Total Users</mat-card-title>
         <mat-card-content>
@@ -67,6 +89,13 @@
     [dataSource]="members"
     class="mat-elevation-z8 full-width-table"
   >
+
+  <!--  ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID</th>
+      <td mat-cell *matCellDef="let member">{{ member.id }}</td>
+    </ng-container>
+
     <!-- User ID Column -->
     <ng-container matColumnDef="user_id">
       <th mat-header-cell *matHeaderCellDef>User ID</th>
@@ -81,6 +110,12 @@
       </td>
     </ng-container>
 
+    <!-- Father Name Column -->
+    <ng-container matColumnDef="father_name">
+      <th mat-header-cell *matHeaderCellDef>Father Name</th>
+      <td mat-cell *matCellDef="let member">{{ member.father_name }}</td>
+    </ng-container>
+
     <!-- Mobile Column -->
     <ng-container matColumnDef="mobile_no">
       <th mat-header-cell *matHeaderCellDef>Mobile</th>
@@ -91,6 +126,12 @@
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef>Email</th>
       <td mat-cell *matCellDef="let member">{{ member.email }}</td>
+    </ng-container>
+
+    <!-- password Column -->
+    <ng-container matColumnDef="password">
+      <th mat-header-cell *matHeaderCellDef>Password</th>
+      <td mat-cell *matCellDef="let member">{{ member.password }}</td>
     </ng-container>
 
     <!-- Join Date Column -->
@@ -111,6 +152,12 @@
       <td mat-cell *matCellDef="let member">{{ member.pan_no }}</td>
     </ng-container>
 
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let member">{{ member.address }}</td>
+    </ng-container>
+
     <!-- profile image -->
     <ng-container matColumnDef="image">
       <th mat-header-cell *matHeaderCellDef>Profile Image</th>
@@ -124,7 +171,7 @@
       </td>
     </ng-container>
 
-    <!-- Account Status Column -->  
+    <!-- Account Status Column -->
   <ng-container matColumnDef="account_status">
   <th mat-header-cell *matHeaderCellDef>Status</th>
   <td mat-cell *matCellDef="let member">

@@ -28,16 +28,19 @@ export class AdminDashboardComponent implements OnInit {
 
   members: any[] = [];
   displayedColumns: string[] = [
+    'id',
     'user_id',
     'name',
+    'father_name',
     'mobile_no',
     'email',
     'join_date',
     'aadhar_no',
     'pan_no',
-    // 'address',
+    'address',
+    'password',
     'account_status',
-    'actions'
+    'actions',
     // 'image'
   ];
 
@@ -172,7 +175,6 @@ export class AdminDashboardComponent implements OnInit {
         },
       });
   }
-
 
   viewMember(member: Member) {
     // Logic to view member details

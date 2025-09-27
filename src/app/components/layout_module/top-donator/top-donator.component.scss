@@ -1,0 +1,134 @@
+.container {
+  padding: 16px;
+
+  .header-card {
+    text-align: center;
+    padding: 24px;
+    margin-bottom: 24px;
+
+    .tagline {
+      color: gray;
+      margin: 8px 0 16px 0;
+    }
+
+    .buttons {
+      button {
+        margin: 0 8px;
+      }
+    }
+  }
+
+  .stats {
+    margin-bottom: 24px;
+    display: inline-flex;
+    gap: 16px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+
+    .stat-card {
+      padding: 16px;
+      text-align: center;
+      h2 {
+        margin: 0;
+      }
+      p {
+        margin: 4px 0 0 0;
+        color: gray;
+      }
+    }
+  }
+
+  .leaderboard {
+    padding: 16px;
+
+    .donor-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+
+      .rank {
+        font-weight: bold;
+        width: 24px;
+      }
+
+      .donor-info {
+        flex: 1;
+        margin: 0 16px;
+
+        .donor-name {
+          font-weight: 500;
+
+          .badge {
+            background-color: #ffeb3b;
+            color: black;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 12px;
+            margin-left: 8px;
+          }
+        }
+
+        .donor-message {
+          color: gray;
+          font-style: italic;
+          font-size: 14px;
+          margin-top: 4px;
+        }
+      }
+
+      .donation-details {
+        text-align: right;
+
+        .amount {
+          font-weight: bold;
+        }
+
+        .date {
+          color: gray;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    gap: 16px; // spacing between stat cards
+
+    .stat-card {
+      flex: 1 1 100% !important;
+      width: 100%;
+      margin-bottom: 12px; // optional, for extra spacing
+    }
+  }
+
+  .leaderboard .donor-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 8px; // ensure spacing
+
+    .donation-details {
+      text-align: left;
+      margin-top: 8px;
+      font-size: 14px; // scale font for smaller screens
+    }
+
+    .donor-name {
+      font-size: 16px; // optional adjustment
+      margin-bottom: 4px;
+    }
+  }
+
+  // Optional: make container padding responsive
+  .container {
+    padding: 0 16px;
+  }
+}
+

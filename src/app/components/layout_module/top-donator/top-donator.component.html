@@ -1,0 +1,41 @@
+<div class="container">
+  <!-- Header -->
+  <mat-card class="header-card">
+    <h1>Top Donators</h1>
+    <p class="tagline">Satnam Trust recognizes and thanks our most generous supporters</p>
+    <div class="buttons">
+      <button mat-stroked-button color="primary" routerLink="/home">
+      Back to Home
+    </button>
+       <button mat-flat-button color="accent" routerLink="/donation">
+      Make a Donation
+    </button>
+    </div>
+  </mat-card>
+
+  <!-- Stats -->
+  <div class="stats" fxLayout="row wrap" fxLayoutGap="16px">
+    <mat-card class="stat-card" *ngFor="let stat of stats" fxFlex="1 1 calc(25% - 16px)">
+      <h2>{{ stat.value }}</h2>
+      <p>{{ stat.label }}</p>
+    </mat-card>
+  </div>
+
+  <!-- Leaderboard -->
+  <mat-card class="leaderboard">
+    <div *ngFor="let donor of donors" class="donor-item" [ngClass]="'rank-' + donor.rank">
+      <div class="rank">{{ donor.rank }}</div>
+      <div class="donor-info">
+        <div class="donor-name">
+          {{ donor.name }}
+          <span class="badge" *ngIf="donor.badge">{{ donor.badge }}</span>
+        </div>
+        <div class="donor-message">"{{ donor.message }}"</div>
+      </div>
+      <div class="donation-details">
+        <div class="amount">{{ donor.amount }}</div>
+        <div class="date">{{ donor.date }}</div>
+      </div>
+    </div>
+  </mat-card>
+</div>

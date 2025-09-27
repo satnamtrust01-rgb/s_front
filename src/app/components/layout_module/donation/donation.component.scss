@@ -1,0 +1,194 @@
+:host { display: block; }
+
+/* Page background */
+.page-container {
+  margin-top: 0;
+  padding-top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background: linear-gradient(180deg, #eef5fb 0%, #dbe7f4 100%);
+  // padding: 30px 24px;
+}
+
+/* central wrapper */
+.inner {
+  width: 1200px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Common card styling */
+.card {
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(16, 40, 80, 0.08);
+  padding: 28px;
+  background: #ffffff;
+  flex: 1 1 0;
+}
+
+/* make both left and right "large" visually wide */
+.large {
+  min-height: 560px;
+}
+
+/* Left QR card specifics */
+.left-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .qr-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 320px;
+    margin-bottom: 18px;
+  }
+
+  .qr-frame {
+    width: 280px;
+    height: 280px;
+    background: #f6f8fa;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid rgba(240,242,245,0.9);
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  .qr-text {
+    text-align: center;
+    margin-top: 8px;
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 0.2px;
+    }
+    p {
+      color: #4a4a4a;
+      margin: 0;
+    }
+  }
+
+  .actions {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+  }
+}
+
+/* Right details card specifics */
+.right-card {
+  display: flex;
+  flex-direction: column;
+
+  .trust-header {
+    h3 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      color: #13324a;
+    }
+
+    .underline {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #1e90ff, #1690e0);
+      margin: 10px 0 18px 0;
+      border-radius: 2px;
+      max-width: 220px;
+    }
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 6px;
+
+    .info-item {
+      background: #f7f9fb;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(16,40,80,0.03);
+      .label {
+        font-size: 14px;
+        color: #12324a;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .value {
+        font-size: 15px;
+        color: #34495e;
+        word-break: break-word;
+      }
+    }
+  }
+}
+
+/* Responsive */
+/* Responsive for tablets and mobiles */
+@media (max-width: 1100px) {
+  .inner {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 12px;
+  }
+
+  .large {
+    min-height: auto;
+  }
+
+  .left-card .qr-holder {
+    width: 260px;
+    height: 260px;
+  }
+
+  .left-card .qr-frame {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media (max-width: 600px) {
+  .inner {
+    padding: 0 8px;
+    gap: 15px;
+  }
+
+  .left-card .qr-holder {
+    width: 200px;
+    height: 200px;
+  }
+
+  .left-card .qr-frame {
+    width: 180px;
+    height: 180px;
+  }
+
+  .left-card, .right-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  h1, h2, p {
+    text-align: center;
+  }
+}
+

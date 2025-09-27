@@ -1,5 +1,5 @@
 <div class="top_bar">
-  <p>हे सतपुरष हे सतनाम</p>
+  <p>हे सतनाम हे सतपुरष</p>
 </div>
 
 <mat-toolbar color="primary" class="home-navbar sticky-navbar" [class.shrink]="isShrunk">
@@ -8,17 +8,26 @@
     Satnam <span>Trust</span>
   </div>
 
+  <!-- Menu Toggle Button for Mobile -->
   <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
     <mat-icon>menu</mat-icon>
   </button>
 
   <nav class="nav-links" [class.active]="isMenuOpen">
-    <button mat-button [routerLink]="['/home']" [ngClass]="{'active-link': activeRoute === '/home'}">Home</button>
-    <button mat-button [routerLink]="['/membership']" [ngClass]="{'active-link': activeRoute === '/membership'}">Membership</button>
-    <button mat-button [routerLink]="['/weBuild']" [ngClass]="{'active-link': activeRoute === '/weBuild'}">We Build</button>
-    <button mat-button [routerLink]="['/aboutDetail']" [ngClass]="{'active-link': activeRoute === '/aboutDetail'}">About</button>
+    <!-- Close Button for Mobile Slider -->
+    <button class="close-btn" *ngIf="isMenuOpen" (click)="closeMenu()">
+      <mat-icon>close</mat-icon>
+    </button>
 
-    <button mat-button *ngIf="!isLoggedIn" (click)="openLoginDialog()">Login</button>
-    <button mat-button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+    <button mat-button [routerLink]="['/home']" [ngClass]="{'active-link': activeRoute === '/home'}" (click)="closeMenu()">Home</button>
+    <button mat-button [routerLink]="['/membership']" [ngClass]="{'active-link': activeRoute === '/membership'}" (click)="closeMenu()">Membership</button>
+    <button mat-button [routerLink]="['/weBuild']" [ngClass]="{'active-link': activeRoute === '/weBuild'}" (click)="closeMenu()">We Build</button>
+    <button mat-button [routerLink]="['/aboutDetail']" [ngClass]="{'active-link': activeRoute === '/aboutDetail'}" (click)="closeMenu()">About</button>
+    <button mat-button [routerLink]="['/newsDetail']" [ngClass]="{'active-link': activeRoute === '/newsDetail'}" (click)="closeMenu()">News</button>
+    <button mat-button [routerLink]="['/donation']" [ngClass]="{'active-link': activeRoute === '/donation'}" (click)="closeMenu()">Donate Now</button>
+    <button mat-button [routerLink]="['/top-donors']" [ngClass]="{'active-link': activeRoute === '/top-donors'}" (click)="closeMenu()">Top Donors</button>
+
+    <button mat-button *ngIf="!isLoggedIn" (click)="openLoginDialog(); closeMenu()">Login</button>
+    <button mat-button *ngIf="isLoggedIn" (click)="logout(); closeMenu()">Logout</button>
   </nav>
 </mat-toolbar>

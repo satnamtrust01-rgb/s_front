@@ -27,6 +27,7 @@
 
     <!-- Profile Details -->
     <div class="profile-details">
+      <p><strong>ID Card No:</strong> {{ user?.id || "N/A" }}</p>
       <p><strong>User ID:</strong> {{ user?.user_id || "N/A" }}</p>
       <p><strong>Email:</strong> {{ user?.email || "N/A" }}</p>
       <p><strong>Mobile:</strong> {{ user?.mobile_no || "N/A" }}</p>
@@ -37,12 +38,12 @@
     <!-- Signatures -->
     <div class="signature">
       <div class="signature-ceo">
-        <img src="images/ksign.jpg" alt="CEO Signature">
+        <img src="images/ksign.png" alt="CEO Signature">
         <h2>Kamalkant Koshle</h2>
         <h3>CEO, Satnam Trust</h3>
       </div>
       <div class="signature-founder">
-        <img src="images/gsign.jpg" alt="Founder Signature">
+        <img src="images/gsign.png" alt="Founder Signature">
         <h2>Guru Somesh Baba</h2>
         <h3>Founder & Chairman</h3>
       </div>
@@ -57,9 +58,10 @@
   </mat-card>
 
   <!-- Download Button -->
-  <div class="download-btn" #downloadBtn>
-    <button mat-raised-button color="primary" (click)="downloadIdCard()">
-      Download ID Card
-    </button>
-  </div>
+<div class="download-btn" #downloadBtn *ngIf="isVerified">
+  <button mat-raised-button color="primary" (click)="downloadIdCard()">
+    Download ID Card
+  </button>
+</div>
+
 </div>

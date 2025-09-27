@@ -19,7 +19,7 @@ export class CommonNavbarComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    this.isShrunk = scrollY > 50; // Shrink after 50px scroll
+    this.isShrunk = scrollY > 50;
   }
 
   constructor(
@@ -41,12 +41,16 @@ export class CommonNavbarComponent implements OnInit {
   checkLoginStatus() {
     if (isPlatformBrowser(this.platformId)) {
       this.isLoggedIn = !!localStorage.getItem('token');
-      this.isAdmin = localStorage.getItem('role') === 'admin'; // optional role check
+      this.isAdmin = localStorage.getItem('role') === 'admin';
     }
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 
   openLoginDialog() {
@@ -55,8 +59,7 @@ export class CommonNavbarComponent implements OnInit {
       disableClose: false,
     });
 
-    ref.afterClosed().subscribe((result) => {
-      // After login modal closes, check status again
+    ref.afterClosed().subscribe(() => {
       this.checkLoginStatus();
     });
   }

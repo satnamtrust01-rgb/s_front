@@ -1,1 +1,178 @@
-<p>news-detail works!</p>
+<div class="dashboard-container">
+  <!-- Centered Page Heading -->
+  <h1 class="page-title">Satnam Trust – Vacancies</h1>
+  <p class="page-subtitle">Employees, Vacancies & Announcements at a glance</p>
+
+  <!-- 🔍 Search Bar -->
+  <!-- <div class="search-bar">
+    <mat-form-field appearance="outline">
+      <mat-label>Search by Title</mat-label>
+      <input matInput [(ngModel)]="searchTitle" (input)="filterVacancies()" placeholder="e.g. Office Assistant">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Search by Date</mat-label>
+      <input matInput type="date" [(ngModel)]="searchDate" (change)="filterVacancies()">
+    </mat-form-field>
+  </div> -->
+
+  <!-- 📊 Summary Cards -->
+  <div class="summary-grid">
+    <mat-card class="summary-card employees">
+      <mat-card-title>Total Employees</mat-card-title>
+      <mat-card-content>{{ totalEmployees }}</mat-card-content>
+    </mat-card>
+
+    <mat-card class="summary-card vacancies">
+      <mat-card-title>Open Vacancies</mat-card-title>
+      <mat-card-content>{{ filteredVacancies.length }}</mat-card-content>
+    </mat-card>
+
+    <mat-card class="summary-card applications">
+      <mat-card-title>Applications Received</mat-card-title>
+      <mat-card-content>{{ totalApplications }}</mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- ✅ Dynamic Appointment Cards -->
+  <div *ngFor="let appointment of appointments">
+    <mat-card class="announcement-card" [style.border-left-color]="appointment.color">
+      <mat-card-title>
+        <mat-icon [style.color]="appointment.color" class="highlight-icon">
+          {{ appointment.icon }}
+        </mat-icon>
+        <span class="highlight-title">{{ appointment.title }}</span>
+      </mat-card-title>
+
+      <mat-card-content>
+        <p>
+          <strong>{{ appointment.name }}</strong> {{ appointment.message }}
+        </p>
+        <p class="appointment-date">
+          <mat-icon>event</mat-icon>
+          Appointed on: {{ appointment.date | date: 'dd MMM yyyy' }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- 📰 Vacancy List -->
+  <mat-card class="news-card">
+    <mat-card-title>
+      <mat-icon color="accent">announcement</mat-icon>
+      News & Vacancies
+    </mat-card-title>
+
+    <div *ngIf="filteredVacancies.length === 0" class="no-results">
+      No vacancies found for your search.
+    </div>
+
+    <div *ngFor="let vacancy of filteredVacancies" class="vacancy-item">
+      <h3>{{ vacancy.title }}</h3>
+      <p>Posted on: {{ vacancy.date | date: 'dd MMM yyyy' }}</p>
+      <a [href]="vacancy.pdf" target="_blank" download>
+        <mat-icon>picture_as_pdf</mat-icon>
+        Download Vacancy Details (PDF)
+      </a>
+    </div>
+
+    <!-- 🆕 Apply Now Button -->
+    <div class="apply-now">
+      <a href="https://forms.gle/Z6TXgZkkeT94PsMG8" target="_blank">
+        <button mat-raised-button color="primary">
+          <mat-icon>send</mat-icon> Apply for a Vacancy
+        </button>
+      </a>
+    </div>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- CEO Appointment Announcement -->
+<!-- <mat-card class="announcement-card" style="margin-bottom: 16px; background: #e3f2fd;">
+  <mat-card-title>
+    <mat-icon color="primary" style="vertical-align: middle;">star</mat-icon>
+    <span style="vertical-align: middle;">New CEO Appointment</span>
+  </mat-card-title>
+  <mat-card-content>
+    <p>
+      <strong>Kamalkant Koshle</strong> has been appointed as the new CEO of Satnam Trust.<br>
+      Please join us in welcoming him to this leadership role!
+    </p>
+  </mat-card-content>
+</mat-card> -->
+
+<!-- News Section -->
+<!-- <mat-card class="news-card">
+  <mat-card-title>
+    <mat-icon color="accent" style="vertical-align: middle;">announcement</mat-icon>
+    <span style="vertical-align: middle;">News & Vacancies</span>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="vacancy-item">
+      <h3>Vacancy: Office Assistant</h3>
+      <p>
+        We are hiring for the position of Office Assistant.<br>
+        <a href="assets/vacancy-office-assistant.pdf" target="_blank" download>
+          <mat-icon>picture_as_pdf</mat-icon>
+          Download Vacancy Details (PDF)
+        </a>
+      </p>
+    </div> -->
+    <!-- Add more news or vacancies here -->
+  <!-- </mat-card-content>
+</mat-card> -->
